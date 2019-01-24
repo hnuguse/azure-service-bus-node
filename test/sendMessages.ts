@@ -6,7 +6,7 @@
   to learn about Queues, Topics and Subscriptions.
 */
 
-import { Namespace, SendableMessageInfo } from "../../lib";
+import { Namespace, SendableMessageInfo } from "../lib";
 
 // Define connection string and related Service Bus entity names here
 const connectionString = "Endpoint=sb://nfieldpurpleserbus.servicebus.windows.net/;SharedAccessKeyName=TestKey;SharedAccessKey=ccE6iwGXegyMXlcJ+M8MCpy4MWMeb7mv6RN/ccJNvMk=";
