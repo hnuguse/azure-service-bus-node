@@ -10,8 +10,8 @@
 import { Namespace } from "../../lib";
 
 // Define connection string and related Service Bus entity names here
-const connectionString = "";
-const queueName = "";
+const connectionString = "Endpoint=sb://nfieldpurpleserbus.servicebus.windows.net/;SharedAccessKeyName=TestKey;SharedAccessKey=ccE6iwGXegyMXlcJ+M8MCpy4MWMeb7mv6RN/ccJNvMk=";
+const queueName = "testamqp";
 
 async function main(): Promise<void> {
   const ns = Namespace.createFromConnectionString(connectionString);

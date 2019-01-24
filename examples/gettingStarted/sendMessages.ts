@@ -9,21 +9,21 @@
 import { Namespace, SendableMessageInfo } from "../../lib";
 
 // Define connection string and related Service Bus entity names here
-const connectionString = "";
-const queueName = "";
+const connectionString = "Endpoint=sb://nfieldpurpleserbus.servicebus.windows.net/;SharedAccessKeyName=TestKey;SharedAccessKey=ccE6iwGXegyMXlcJ+M8MCpy4MWMeb7mv6RN/ccJNvMk=";
+const queueName = "testamqp";
 
-const listOfScientists = [
-  { name: "Einstein", firstName: "Albert" },
-  { name: "Heisenberg", firstName: "Werner" },
-  { name: "Curie", firstName: "Marie" },
-  { name: "Hawking", firstName: "Steven" },
-  { name: "Newton", firstName: "Isaac" },
-  { name: "Bohr", firstName: "Niels" },
-  { name: "Faraday", firstName: "Michael" },
-  { name: "Galilei", firstName: "Galileo" },
-  { name: "Kepler", firstName: "Johannes" },
-  { name: "Kopernikus", firstName: "Nikolaus" }
-];
+//const listOfScientists = [
+//  { name: "Einstein", firstName: "Albert" },
+//  { name: "Heisenberg", firstName: "Werner" },
+//  { name: "Curie", firstName: "Marie" },
+//  { name: "Hawking", firstName: "Steven" },
+//  { name: "Newton", firstName: "Isaac" },
+//  { name: "Bohr", firstName: "Niels" },
+//  { name: "Faraday", firstName: "Michael" },
+//  { name: "Galilei", firstName: "Galileo" },
+//  { name: "Kepler", firstName: "Johannes" },
+//  { name: "Kopernikus", firstName: "Nikolaus" }
+//];
 
 async function main(): Promise<void> {
   const ns = Namespace.createFromConnectionString(connectionString);
@@ -32,16 +32,16 @@ async function main(): Promise<void> {
   const client = ns.createQueueClient(queueName);
 
   try {
-    for (let index = 0; index < listOfScientists.length; index++) {
-      const scientist = listOfScientists[index];
+    //for (let index = 0; index < listOfScientists.length; index++) {
+      //const scientist = listOfScientists[index];
       const message: SendableMessageInfo = {
-        body: `${scientist.firstName} ${scientist.name}`,
-        label: "Scientist"
+        body: `Test Succeeded`,
+        label: "AMQP Test"
       };
 
       console.log(`Sending message: ${message.body} - ${message.label}`);
       await client.send(message);
-    }
+    //}
 
     await client.close();
   } finally {
@@ -52,3 +52,5 @@ async function main(): Promise<void> {
 main().catch((err) => {
   console.log("Error occurred: ", err);
 });
+
+
